@@ -90,7 +90,7 @@
 	Array.prototype.reduce = function(cb) {
 		var prev = this[0]
 		for(var i=1, len=this.length;i<len;i++) {
-			prev = cb.call(this, prev, this[i], this)
+			prev = cb.call(this, prev, this[i], i, this)
 		}
 		return prev
 	}
@@ -102,7 +102,7 @@
 	Array.prototype.reduceRight = function(cb) {
 		var prev = this[this.length-1]
 		for(var i=this.length-2;i>=0;i--) {
-			prev = cb.call(this, prev, this[i], this);
+			prev = cb.call(this, prev, this[i], i, this);
 		}
 		return prev;
 	}
